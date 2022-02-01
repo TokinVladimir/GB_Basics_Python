@@ -14,24 +14,24 @@ def convert_list_in_str(list_in: list) -> str:
     """Обособляет каждое целое число кавычками, добавляя кавычку до и после элемента
         списка, являющегося числом, и дополняет нулём до двух целочисленных разрядов.
         Формирует из списка результирующую строковую переменную и возвращает."""
-    
-    for n, i in enumerate(list_in, 0):
-    # n - index, i - element
-        if i.isdigit():
-            new_list.append('"')
-            new_list.append(i.zfill(2))
-            new_list.append('"')
-        elif i[0] in '+-':
-            new_list.append('"')
-            new_list.append(i.zfill(3))
-            new_list.append('"')
-        else:
-            new_list.append(i)
+    str_out = []
 
-    str_out = ' '.join(new_list)
+    for i in list_in:
+        checked_element = []
+        if i.isdigit():
+            checked_element.append('"')
+            checked_element.append(i.zfill(2))
+            checked_element.append('"')
+        elif i[0] in '+-':
+            checked_element.append('"')
+            checked_element.append(i.zfill(3))
+            checked_element.append('"')
+        else:
+            checked_element.append(i)
+        str_out.append(''.join(checked_element))
+
     return str_out
 
 my_list = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
-new_list = []
 result = convert_list_in_str(my_list)
-print(result)
+print(*result)
