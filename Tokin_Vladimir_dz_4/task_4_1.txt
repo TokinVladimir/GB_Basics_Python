@@ -1,0 +1,62 @@
+Задание 1
+-- Проверить, установлен ли пакет requests в глобальном окружении. Если да — зафиксировать версию.
+
+pip3 list
+Package      Version
+------------ -------
+distlib      0.3.4
+filelock     3.4.2
+pip          22.0.3
+platformdirs 2.4.1
+setuptools   60.8.2
+six          1.15.0
+virtualenv   20.13.1
+wheel        0.33.1
+
+-- Установить самую свежую версию requests, если ранее она не была установлена.
+
+pip3 install requests
+Defaulting to user installation because normal site-packages is not writeable
+Collecting requests
+  Downloading requests-2.27.1-py2.py3-none-any.whl (63 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.1/63.1 KB 275.0 kB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.3-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 KB 913.2 kB/s eta 0:00:00
+Collecting urllib3<1.27,>=1.21.1
+  Downloading urllib3-1.26.8-py2.py3-none-any.whl (138 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 138.7/138.7 KB 683.6 kB/s eta 0:00:00
+Collecting charset-normalizer~=2.0.0
+  Downloading charset_normalizer-2.0.11-py3-none-any.whl (39 kB)
+Collecting certifi>=2017.4.17
+  Downloading certifi-2021.10.8-py2.py3-none-any.whl (149 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 149.2/149.2 KB 2.3 MB/s eta 0:00:00
+Installing collected packages: certifi, urllib3, idna, charset-normalizer, requests
+
+-- Создать и активировать виртуальное окружение. Убедиться, что в нем нет пакета requests.
+
+python3 -m venv venv
+source venv/bin/activate
+
+pip3 show requests
+WARNING: Package(s) not found: requests
+
+-- Установить в виртуальное окружение requests версии 2.27.1 (или другой, отличной от самой свежей).
+
+pip3 install requests
+
+pip3 show requests
+Name: requests
+Version: 2.27.1
+Summary: Python HTTP for Humans.
+Home-page: https://requests.readthedocs.io
+Author: Kenneth Reitz
+Author-email: me@kennethreitz.org
+License: Apache 2.0
+Location: /Users/vladimir/Documents/GB_Basics_Python/Tokin_Vladimir_dz_4/venv/lib/python3.8/site-packages
+Requires: charset-normalizer, certifi, idna, urllib3
+Required-by: 
+
+-- Деактивировать виртуальное окружение.
+
+deactivate
