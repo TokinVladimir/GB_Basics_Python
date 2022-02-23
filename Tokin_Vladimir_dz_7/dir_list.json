@@ -1,0 +1,4 @@
+{
+    "my_project": ["settings", "mainapp", "adminapp", "authapp"],
+    "my_project2": ["settings2", "mainapp2"]
+}
